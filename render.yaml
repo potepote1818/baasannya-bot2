@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: slack-anonymous-bot
+    env: python
+    buildCommand: ""
+    startCommand: python app.py
+    plan: free
+    envVars:
+      - key: SLACK_BOT_TOKEN
+        sync: false  # 後ほどRenderのWeb画面から設定
