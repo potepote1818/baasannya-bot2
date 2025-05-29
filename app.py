@@ -11,11 +11,8 @@ from sqlalchemy.orm import sessionmaker
 app = Flask(__name__)
 
 # 設定ファイルの読み込み
-config = configparser.ConfigParser()
-config.read('config.ini')
-
-# 設定ファイルからSlackのボットトークンを取得
-SLACK_BOT_TOKEN = config.get('slack', 'bot_token')
+import os
+SLACK_BOT_TOKEN = os.environ.get('SLACK_BOT_TOKEN')
 client = WebClient(token=SLACK_BOT_TOKEN)
 
 # データベースの設定
